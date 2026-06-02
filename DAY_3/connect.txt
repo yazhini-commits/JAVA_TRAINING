@@ -1,0 +1,6 @@
+my sql with jdbc in vs code
+connector, installer,driver
+//concept
+multi threading
+networking
+

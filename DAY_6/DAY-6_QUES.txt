@@ -1,0 +1,40 @@
+=============================
+DOM TAsks
+============================
+1. Change whole page Background Color on Button Click
+
+Create a button that changes the page background to a random color when clicked.
+
+2. Digital Clock
+
+Display the current time and update it every second.
+
+3. Live Date and Time
+
+Show both the current date and time, updating every second.
+
+4. Character Counter
+
+Count and display the number of characters typed in a textarea.
+
+5. Hover Color Change
+
+Change a box's color when the mouse enters and restore it when the mouse leaves.
+
+6. Random Quote Generator
+
+Display a random quote whenever a button is clicked.
+
+7. Toggle Password Visibility
+
+Show or hide a password when a button is clicked.
+
+8. Random Button Color on Hover
+
+Change a button's color randomly whenever the mouse hovers over it.
+
+9. Create an image slider using JavaScript. Store 5 image URLs in an array and automatically change the displayed image every 3 seconds using setInterval().
+
+10.Todo list
+
+add, update, delete elements from table

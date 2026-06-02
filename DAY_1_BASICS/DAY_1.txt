@@ -1,0 +1,455 @@
+Codechef
+===========
+https://www.codechef.com/problems/START01
+https://www.codechef.com/problems/FLOW001
+https://www.codechef.com/problems/FLOW002
+https://www.codechef.com/problems/HS08TEST
+https://www.codechef.com/problems/FLOW009
+https://www.codechef.com/problems/FLOW010
+
+Extra
+======
+https://www.codechef.com/practice/java-interview-questions
+https://www.codechef.com/practice/basic-programming-concepts
+
+
+Questions
+============
+------------------------------------------------------------------
+Number programs
+------------------------------------------------------------------
+0) Multiplication Table 1 to 10 based on input
+
+input = 4 
+
+1 * 4 = 4
+2 * 4 = 8
+….
+10 * 4 = 40
+
+
+
+1) Sum of digits from number
+input = 123
+output = 6
+
+input = 100
+output = 1
+
+
+
+2) count the digit from the number
+
+input = 52357
+output = 5
+
+input = 101
+output = 3
+
+
+
+
+3) A perfect number is a positive integer that equals the sum of its proper divisors, excluding the number itself. 
+Exp:- 
+	input 1) 6 is a perfect number because its divisors (1, 2, and 3) add up to 6 (1 + 2 + 3 = 6). output = true
+
+	input 2) 28, where the sum of its divisors (1, 2, 4, 7, and 14) equals 28 (1 + 2 + 4 + 7 + 14 = 28). output = true
+
+	input 3) 8 => (1+2+4 = 7) output = false
+
+
+
+4) Find Largest digit from the number
+
+input = 56318
+output = 8
+
+input = 765
+output = 7
+
+
+
+5) Count the Number of Factors of a Given Number from 1 to number itself
+	input = 12
+	Output: 6
+
+	input = 5
+	output = 2
+
+
+6) Reverse a Number
+	input = 341
+	output = 143
+
+	input = 976
+	output = 679
+
+
+7) Check if a Number is Palindromic
+	input = 12321
+	output = true
+
+	input = 143
+	output = false
+
+
+
+8)  Generate the Fibonacci Sequence up to N Terms
+
+input = 10
+Output: 0 1 1 2 3 5 8 13 21 34
+
+
+
+9) Find the Greatest Common Divisor (GCD) 
+	
+input = 56, 98
+output = 14
+
+input = 6, 12
+output = 6
+
+
+
+
+10) Check if a Number is Prime or not.
+input = 5
+output = Prime
+
+input = 21
+output = Not Prime
+
+
+11) Armstrong number 
+    1)	input = 153 =>  1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153 
+	output = Armstrong
+    2)  input = 370: 3^3 + 7^3 + 0^3 = 27 + 343 + 0 = 370 
+	output = Armstrong
+    3)  input 120 =>
+	output = not Armstrong
+    4)  input = 407: 4^3 + 0^3 + 7^3 = 64 + 0 + 343 = 407 
+	output = Armstrong
+    5)  input = 1634 => 1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634 
+	output = Armstrong
+
+=====================================
+
+Question: ATM Machine Simulator
+
+Write a Python program to simulate basic ATM operations. Your program should perform the following tasks:
+Requirements:
+1.	Prompt the user to enter a 4-digit PIN.
+2.	If the PIN is correct (assume the correct PIN is "1234"), display a menu with the following options:
+o	1. Check Balance
+o	2. Withdraw Money
+o	3. Deposit Money
+3.	Based on the user's choice:
+o	If the user selects 1, display the current balance (assume the initial balance is ₹10,000).
+o	If the user selects 2, prompt the user to enter a withdrawal amount. Deduct the amount from the balance only if the withdrawal amount is less than or equal to the balance and multiple of 100.
+o	If the user selects 3, prompt the user to enter a deposit amount and add it to the balance. (multiple of 100 and less than 40000)
+4.	If the PIN entered is incorrect, deny access with an appropriate message.
+5.	Handle invalid menu choices gracefully.
+________________________________________
+Test Case:
+Input:
+Enter your 4 digit pin:- 1234
+Welcome
+1.Check Balance 
+2. Withdraw Money
+3. Deposit Money 
+4. Exit
+Enter your choice (1/2/3/4):
+1
+Your current balance is: 10000
+Enter your choice (1/2/3/4):
+2
+Enter your withdraw amount:5400
+Withdraw successful
+Enter your choice (1/2/3/4):
+1
+Your current balance is: 4600
+
+Enter your choice (1/2/3/4):
+2
+Enter your withdraw amount:5000
+Insufficient Balance
+Enter your choice (1/2/3/4):
+2
+Enter your withdraw amount:4020
+Please enter valid amount
+Enter your choice (1/2/3/4):
+3
+Enter your Deposit amount:2500
+Deposit successful
+Enter your choice (1/2/3/4):
+1
+Your current balance is: ?7100
+Enter your choice (1/2/3/4):
+5
+Invalid Option
+Enter your choice (1/2/3/4):
+4
+Thank you
+
+===========================================
+
+
+
+Topics
+============
+Output: output methods are used to display text or values on the console.
+--------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        int num = 10;
+        String name = "apple";
+
+        System.out.print("hello ");
+        System.out.println("all"+" "+name);
+
+        System.out.printf("Name = %s\n", name);
+        System.out.printf("Number = %d", num);
+
+    }
+}
+
+
+Common Format Specifiers in printf()
+Specifier	Meaning
+%d	integer
+%f	float/double
+%c	character
+%s	string
+%b	boolean
+%n	new line
+
+
+
+Scanner Class in Java (Input)
+--------------------------------
+
+next(): Scans the next token (word) as a String. It doesn't consider spaces.
+nextLine(): Scans the next line of input as a String. It reads everything until a newline is encountered.
+nextInt(): Scans the next token as an int.
+nextFloat(): Scans the next token as a float.
+next().charAt(0): for getting char input
+nextBoolean(): Scans the next token as a boolean.
+nextLong(): Scans the next token as a long.
+nextDouble(): Scans the next token as a double.
+nextByte(): Scans the next token as a byte.
+nextShort(): Scans the next token as a short.
+nextBigInteger(): Scans the next token as a BigInteger.
+nextBigDecimal(): Scans the next token as a BigDecimal.
+
+
+
+    Scanner obj1 = new Scanner(System.in);
+    int size = obj.nextInt();
+    int names[] = new int[size];
+    for(int i=0;i<size;i++)
+        names[i] = obj.nextInt();
+        
+    System.out.println(Arrays.toString(names));
+
+===========================================
+
+Type conversion in Java
+
+// Implicit conversion
+        int intVar = 100;
+        long longVar = intVar;  
+
+        float floatVar = intVar;  
+        double doubleVar = intVar; 
+
+        System.out.println("longVar: " + longVar);
+        System.out.println("floatVar: " + floatVar);
+        System.out.println("doubleVar: " + doubleVar);
+        
+        char charVar = 'A';
+        int intV = charVar; 
+
+        char newChar = (char) intV;
+
+        System.out.println("charVar: " + charVar);
+        System.out.println("intVar: " + intV);
+        System.out.println("newChar: " + newChar);
+
+	// Convert chat into int
+	System.out.println((int) 'A');
+        
+// Explicit conversion
+        int num = 100;
+        String str = String.valueOf(num);  
+        System.out.println("String: " + str);
+        
+        String strNum = "123";
+        int num1 = Integer.parseInt(strNum); 
+        System.out.println("num: " + num1);
+        
+        // Type check
+        String str1 = "Hello, World!";
+        Integer num2 = 10;
+
+        
+        if (str1 instanceof String) {
+            System.out.println("'str' is a String");
+        }
+
+        if (num2 instanceof Integer) {
+            System.out.println("'num' is an Integer");
+        }
+
+================
+
+	int a = 4;
+        int b = 5;
+        System.out.println(Math.min(a, b));
+        System.out.println(Math.max(a, b));
+        System.out.println(Math.sqrt(a));
+        System.out.println(Math.pow(2, 3));
+        System.out.println(Math.abs(-3.9));
+        System.out.println(Math.ceil(4.4));
+        System.out.println(Math.floor(4.5));
+        System.out.println(Math.round(4.4));
+
+================
+
+1. Unary Plus (+)
+----------------------
+Purpose: It simply returns the value of the operand, but is mostly used to indicate a positive value explicitly (which is redundant for numeric types).
+
+Example:
+
+int a = 5;
+int result = +a;  // result will be 5
+
+2. Unary Minus (-)
+-----------------------
+Purpose: It negates the value of the operand.
+
+Example:
+
+int a = 5;
+int result = -a;  // result will be -5
+
+3. Increment (++)
+-----------------------
+Purpose: It increases the value of the operand by 1.
+
+Pre-increment: ++a increments the value before it is used.
+
+Post-increment: a++ increments the value after it is used.
+
+Example:
+
+int a = 5;
+int preIncrement = ++a;  // a becomes 6, preIncrement will be 6
+int postIncrement = a++; // postIncrement will be 6, a becomes 7
+
+
+4. Decrement (--)
+-----------------------
+Purpose: It decreases the value of the operand by 1.
+
+Pre-decrement: --a decrements the value before it is used.
+
+Post-decrement: a-- decrements the value after it is used.
+
+Example:
+
+int a = 5;
+int preDecrement = --a;  // a becomes 4, preDecrement will be 4
+int postDecrement = a--; // postDecrement will be 4, a becomes 3
+
+
+5. Logical NOT (!)
+-----------------------
+Purpose: It negates a boolean value.
+
+Example:
+
+boolean flag = true;
+boolean result = !flag;  // result will be false
+These operators can be used with variables or expressions of suitable types.
+
+
+bitwise operator
+-----------------------
+In Java, bitwise operators are used to perform operations on the binary representations of integers (i.e., int, long, short, byte, etc.). These operators perform bit-level operations, which can be very useful for low-level programming tasks like manipulating flags, performing fast calculations, or working with hardware.
+
+Here are the main bitwise operators in Java:
+
+1. Bitwise AND (&)
+-----------------------
+Purpose: Compares each bit of two operands. The result is 1 if both bits are 1, otherwise 0.
+
+Example:
+
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a & b;  // 0001 in binary (which is 1 in decimal)
+System.out.println(result);  // Output: 1
+
+2. Bitwise OR (|)
+-----------------------
+Purpose: Compares each bit of two operands. The result is 1 if at least one of the bits is 1, otherwise 0.
+
+Example:
+
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a | b;  // 0111 in binary (which is 7 in decimal)
+System.out.println(result);  // Output: 7
+
+
+3. Bitwise XOR (^)
+-----------------------
+Purpose: Compares each bit of two operands. The result is 1 if the bits are different, otherwise 0.
+
+Example:
+
+int a = 5;   // 0101 in binary
+int b = 3;   // 0011 in binary
+int result = a ^ b;  // 0110 in binary (which is 6 in decimal)
+System.out.println(result);  // Output: 6
+
+
+4. Bitwise Complement (~)
+-------------------------------------
+Purpose: Flips all the bits of the operand. All 1 bits become 0, and all 0 bits become 1.
+
+Example:
+
+int a = 5;   // 0101 in binary
+int result = ~a;  // 1010 in binary (which is -6 in decimal due to two's complement representation)
+System.out.println(result);  // Output: -6
+
+
+5. Left Shift (<<)
+-------------------------------------
+Purpose: Shifts the bits of the operand to the left by the specified number of positions. The empty bits on the right are filled with 0s.
+
+Each left shift operation is like multiplying the number by 2.
+
+Example:
+
+int a = 5;   // 0101 in binary
+int result = a << 1;  // 1010 in binary (which is 10 in decimal)
+System.out.println(result);  // Output: 10
+
+
+6. Right Shift (>>)
+-------------------------------------
+Purpose: Shifts the bits of the operand to the right by the specified number of positions. For signed integers, the leftmost bits are filled with the sign bit (i.e., 0 for positive numbers, 1 for negative numbers).
+
+Each right shift operation is like dividing the number by 2 (and discarding any remainder).
+
+Example:
+
+int a = 5;   // 0101 in binary
+int result = a >> 1;  // 0010 in binary (which is 2 in decimal)
+System.out.println(result);  // Output: 2
+

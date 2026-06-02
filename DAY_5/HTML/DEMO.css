@@ -1,0 +1,441 @@
+
+
+body {
+  font-family: Arial;
+  background: #f2f2f2;
+  margin: 20px;
+  line-height: 1.7;
+}
+
+h1 {
+  text-align: center;
+  color: darkblue;
+  text-shadow: 2px 2px 5px gray;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+
+/* =========================================
+           4. SELECTORS
+        ========================================== */
+
+p {
+  color: blue;
+}
+
+.myClass {
+  color: red;
+  font-weight: bold;
+}
+
+#heading {
+  color: green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2,
+p,
+div {
+  margin-top: 10px;
+}
+
+/* =========================================
+           5. COLORS
+        ========================================== */
+
+.color-box {
+  background-color: yellow;
+  color: #ff0000;
+  padding: 10px;
+}
+
+/* =========================================
+           6. TEXT STYLING
+        ========================================== */
+
+.text-style {
+  color: purple;
+  font-size: 20px;
+  font-family: Verdana;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+           7. FONT PROPERTIES
+        ========================================== */
+
+.font-demo {
+  font-size: 30px;
+  font-family: Courier New;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* =========================================
+           8. BACKGROUND
+========================================== */
+
+.bg-demo {
+  background-color: lightblue;
+  padding: 20px;
+  background-image: url("https://via.placeholder.com/100");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+/* =========================================
+           9. BORDER
+========================================== */
+
+.border-demo {
+  border: 3px solid red;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* =========================================
+           10. MARGIN
+        ========================================== */
+
+.margin-demo {
+  margin: 30px;
+  background: lightgreen;
+}
+
+/* =========================================
+           11. PADDING
+        ========================================== */
+
+.padding-demo {
+  padding: 30px;
+  background: lightpink;
+}
+
+/* =========================================
+           12. WIDTH AND HEIGHT
+        ========================================== */
+
+.size-demo {
+  width: 300px;
+  height: 100px;
+  background: orange;
+}
+
+/* =========================================
+           13. DISPLAY
+========================================== */
+
+.display-demo span {
+  display: block;
+  background: cyan;
+  margin: 5px;
+}
+
+/* =========================================
+           14. POSITION
+========================================== */
+
+.position-parent {
+  position: relative;
+  height: 150px;
+  background: #ddd;
+}
+
+.position-box {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  background: red;
+  color: white;
+  padding: 10px;
+}
+
+/* =========================================
+           15. FLEXBOX
+        ========================================== */
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+
+.flex-item {
+  background: skyblue;
+  padding: 20px;
+}
+
+/* =========================================
+           16. GRID
+        ========================================== */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-item {
+  background: lightcoral;
+  padding: 20px;
+  text-align: center;
+}
+
+/* =========================================
+           17. BOX MODEL
+        ========================================== */
+
+.box-model {
+  width: 200px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 20px;
+  background: lightyellow;
+}
+
+/* =========================================
+           18. OVERFLOW
+        ========================================== */
+
+.overflow-demo {
+  width: 250px;
+  height: 100px;
+  overflow: auto;
+  border: 2px solid black;
+}
+
+/* =========================================
+           19. Z-INDEX
+        ========================================== */
+
+.zindex-parent {
+  position: relative;
+  height: 120px;
+}
+
+.box1 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: red;
+  z-index: 1;
+}
+
+.box2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: blue;
+  left: 50px;
+  top: 30px;
+  z-index: 10;
+}
+
+/* =========================================
+           20. OPACITY
+        ========================================== */
+
+.opacity-demo {
+  opacity: 0.5;
+}
+
+/* =========================================
+           21. CURSOR
+        ========================================== */
+
+.cursor-demo {
+  cursor: pointer;
+}
+
+/* =========================================
+           22. HOVER EFFECT
+        ========================================== */
+
+.hover-btn {
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+}
+
+.hover-btn:hover {
+  background: red;
+  color: white;
+}
+
+/* =========================================
+           23. TRANSFORM
+        ========================================== */
+
+.transform-box {
+  width: 100px;
+  height: 100px;
+  background: green;
+  transition: 0.5s;
+}
+
+.transform-box:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* =========================================
+           25. ANIMATION
+        ========================================== */
+
+@keyframes move {
+  from {
+    left: 0px;
+  }
+
+  to {
+    left: 200px;
+  }
+}
+
+.animate-box {
+  width: 100px;
+  height: 100px;
+  background: purple;
+  position: relative;
+  animation: move 2s infinite alternate;
+}
+
+/* =========================================
+           26. SHADOWS
+        ========================================== */
+
+.shadow-box {
+  box-shadow: 5px 5px 10px gray;
+  padding: 20px;
+}
+
+/* =========================================
+           27. LIST STYLING
+        ========================================== */
+
+.list-demo {
+  list-style: square;
+}
+
+/* =========================================
+           28. TABLE STYLING
+        ========================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+/* =========================================
+           29. FORM STYLING
+        ========================================== */
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+/* =========================================
+           30. PSEUDO CLASSES
+        ========================================== */
+
+.pseudo-list li:first-child {
+  color: red;
+}
+
+.pseudo-list li:last-child {
+  color: green;
+}
+
+.pseudo-list li:nth-child(2) {
+  color: blue;
+}
+
+/* =========================================
+           31. PSEUDO ELEMENTS
+        ========================================== */
+
+.pseudo-text::first-letter {
+  font-size: 40px;
+  color: red;
+}
+
+.pseudo-text::first-line {
+  color: blue;
+}
+
+/* =========================================
+           35. CSS VARIABLES
+        ========================================== */
+
+:root {
+  --mainColor: darkorange;
+}
+
+.variable-demo {
+  color: var(--mainColor);
+}
+
+/* =========================================
+           38. CARD DESIGN
+        ========================================== */
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+  background: white;
+}
+
+/* =========================================
+           39. BUTTON DESIGN
+        ========================================== */
+
+.main-btn {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* =========================================
+           32. RESPONSIVE DESIGN
+        ========================================== */
+
+@media (max-width: 600px) {
+  body {
+    background: lightblue;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+}

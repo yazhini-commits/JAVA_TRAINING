@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <body>
+    <h2 id="quote"></h2>
+
+    <button onclick="showQuote()">Quote</button>
+
+    <script>
+      let quotes = [
+        "Never give up",
+        "Stay positive",
+        "Dream big",
+        "Work hard",
+        "Believe in yourself",
+      ];
+
+      function showQuote() {
+        let index = Math.floor(Math.random() * quotes.length);
+
+        document.getElementById("quote").innerHTML = quotes[index];
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+.footer {
+    background-color: #313035;
+    color: #aaa;
+    padding: 40px 0 20px 0;
+    margin-top: 40px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #404043;
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+}
+
+.footer-top-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-top-left .hut-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+}
+
+.footer-top-left .bold-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-top-left .normal-text {
+    color: #ccc;
+    font-size: 15px;
+}
+
+.contact-btn {
+    background: #f84464;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.contact-btn:hover {
+    background: #d13653;
+}
+
+.footer-middle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    background: #404043;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.social-icon:hover {
+    background: #555;
+}
+.social-icon img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+    border-top: 1px solid #4a4a4a;
+    padding-top: 30px;
+    color: #888;
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}

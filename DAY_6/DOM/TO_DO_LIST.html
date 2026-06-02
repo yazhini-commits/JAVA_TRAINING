@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <body>
+    <input type="text" id="task" />
+
+    <button onclick="addTask()">Add</button>
+
+    <table border="1" id="table">
+      <tr>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+    </table>
+
+    <script>
+      function addTask() {
+        let task = document.getElementById("task").value;
+
+        let table = document.getElementById("table");
+
+        let row = table.insertRow();
+
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+
+        cell1.innerHTML = task;
+
+        cell2.innerHTML =
+          "<button onclick='editTask(this)'>Edit</button> " +
+          "<button onclick='deleteTask(this)'>Delete</button>";
+      }
+
+      function deleteTask(btn) {
+        let row = btn.parentNode.parentNode;
+        row.remove();
+      }
+
+      function editTask(btn) {
+        let row = btn.parentNode.parentNode;
+
+        let newTask = prompt("Update Task", row.cells[0].innerHTML);
+
+        row.cells[0].innerHTML = newTask;
+      }
+    </script>
+  </body>
+</html>

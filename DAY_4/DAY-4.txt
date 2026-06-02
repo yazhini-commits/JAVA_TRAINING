@@ -1,0 +1,726 @@
+TYPES OF RECURSION IN JAVA
+
+1)  HEAD RECURSION Definition: Recursive call happens first, work
+    happens after returning.
+
+Example: 
+	public class HeadRecursion { 
+		static void rec(int n) { 
+		if (n == 0) return; 
+			rec(n - 1); 
+			System.out.print(n + ” “); 
+		} 
+		public static void main(String[] args) { 
+			rec(4); 
+		}
+	}
+
+
+
+2)  TAIL RECURSION Definition: Recursive call happens last. No work
+    after recursion.
+
+Example: 
+public class TailRecursion { 
+	static void rec(int n) { 
+		if (n == 0) 
+			return; 
+		System.out.print(n + ” “); 
+		rec(n - 1); 
+	} 
+	public static void main(String[] args) { 
+		rec(4); 
+	} 
+}
+
+
+ 
+
+Example (Fibonacci): Tree Recursion
+======================================
+public class TreeRecursion {
+	static int fib(int n) { 
+		if (n <= 1) 
+			return n; 
+
+		return fib(n - 1) + fib(n - 2); 
+	} 
+public static void main(String[] args) { 
+	System.out.println(fib(5)); 
+	} 
+}
+
+
+
+4)  INDIRECT RECURSION Definition: One function calls another function,
+    which calls the first one.
+
+Example: 
+
+public class IndirectRecursion {
+
+    static void A(int n) {
+        if (n <= 0) 
+          return;
+        System.out.print(n + " ");
+        B(n - 1);
+    }
+
+    static void B(int n) {
+        if (n <= 0) 
+		      return;
+
+        System.out.print(n + " ");
+        A(n - 1);
+    }
+
+    public static void main(String[] args) {
+        A(4);
+    }
+
+}
+
+
+5)  NESTED RECURSION Definition: Recursive call inside another recursive
+    call.
+
+Example (McCarthy 91 Problem): 
+public class NestedRecursion {
+
+    static int rec(int n) {
+        if (n > 100) 
+	    return n - 10;
+
+        return rec(rec(n + 11));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(rec(95));
+    }
+
+}
+
+================
+
+
+Exception Handling
+_-_-_-_-_-_-_-_-_-_-_-
+
+Exception handling in Java allows developers to manage runtime errors effectively by using mechanisms like 
+try-catch block, 
+finally block, 
+throwing Exceptions, 
+Custom Exception handling, etc.
+
+An Exception is an unwanted or unexpected event that occurs during the execution of a program (i.e., at runtime) and disrupts the normal flow of the program’s instructions. 
+It occurs when something unexpected things happen, like accessing an invalid index, dividing by zero, or trying to open a file that does not exist.
+
+Exception in Java is an error condition that occurs when something wrong happens during the program execution.
+
+
+Example:
+--------------
+import java.io.*;
+
+class Main {
+    public static void main(String[] args)
+    {
+        int n = 10;
+        int m = 0;
+
+        int ans = n / m;
+
+        System.out.println("Answer: " + ans);
+    }
+}
+
+
+_________________________________________________________
+
+Handling Exception
+------------------------
+
+1) Try-catch Block
+-----------------------
+A try-catch block is used to handle exceptions. 
+The code that might throw an exception is placed in the try block, and the handling code is in the catch block.
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            // System.out.println("Try");
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e);
+            // System.out.println("end");
+        }
+    }
+}
+
+2) Multiple Catch Block
+--------------------------
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String str = null;
+            System.out.println(str.length());  
+            int result = 10 / 0;              
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException");
+        } catch (ArithmeticException e) {
+            System.out.println("Caught ArithmeticException");
+        } 
+    }
+}
+
+--------------------------------
+3) Nested try block
+--------------------------------
+
+class Main {
+    public static void main(String[] args) {
+        try {
+            try {
+                int result = 10 / 0; 
+            } catch (ArithmeticException e) {
+                System.out.println("Inner catch: Division by zero.");
+                throw e; 
+            }
+        } catch (Exception e) {
+            System.out.println("Outer catch: General exception.");
+        }
+    }
+}
+
+
+4) Finally Block
+----------------------------
+The finally block will always execute, whether or not an exception is thrown, and is typically used for cleanup activities.
+
+Example:
+--------------
+public class Main {
+    public static void main(String[] args) {
+        try {
+            System.out.println("Inside try block");
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Caught exception: " + e);
+        } finally {
+            System.out.println("Inside finally block");
+        }
+    }
+}
+
+--------------------------
+5) Throws Keyword
+--------------------------
+The throws keyword is used to declare that a method can throw one or more exceptions. 
+It is placed in the method signature, after the parameter list. 
+It doesn't handle exceptions but signals that the calling method must handle them.
+
+
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            methodA(15);
+        } catch (IOException e) {
+            System.out.println("IOException caught: " + e.getMessage());
+        }
+    }
+
+    // Declaring that this method may throw an IOException
+    public static void methodA(int age) throws IOException {
+        if(age < 18)
+        throw new IOException("Something went wrong");
+    }
+}
+
+
+===========================================================
+
+6) Custom Exceptions in Java
+----------------------------------
+A custom exception is a user-defined exception class that extends Exception or any of its subclasses.
+
+Example:-
+-----------------
+
+import java.io.*;
+// Define a custom checked exception
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            checkAge(15);  // Trying to check an invalid age
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught Exception: " + e.getMessage());
+        }
+    }
+
+    // Method that throws the custom exception
+    public static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18) {
+            throw new InvalidAgeException("Age must be 18 or older.");
+        }
+        System.out.println("Age is valid.");
+    }
+}
+
+
+========================
+
+All types of Exceptions
+=================================
+public class Main {
+    public static void main(String[] args) {
+
+        // 1. ArithmeticException
+        try {
+            int a = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException Caught");
+        }
+
+        // 2. NullPointerException
+        try {
+            String str = null;
+            System.out.println(str.length());
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException Caught");
+        }
+
+        // 3. ArrayIndexOutOfBoundsException
+        try {
+            int arr[] = {1, 2, 3};
+            System.out.println(arr[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException Caught");
+        }
+
+        // 4. StringIndexOutOfBoundsException
+        try {
+            String s = "Java";
+            System.out.println(s.charAt(10));
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("StringIndexOutOfBoundsException Caught");
+        }
+
+        // 5. NumberFormatException
+        try {
+            int num = Integer.parseInt("abc");
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException Caught");
+        }
+
+        // 6. ClassCastException
+        try {
+            Object obj = "Hello";
+            Integer num = (Integer) obj;
+        } catch (ClassCastException e) {
+            System.out.println("ClassCastException Caught");
+        }
+
+        // 7. IllegalArgumentException
+        try {
+            Thread.sleep(-1000);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException Caught");
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException Caught");
+        }
+
+        // 8. InputMismatchException
+        try {
+            java.util.Scanner sc = new java.util.Scanner(System.in);
+            System.out.print("Enter number: ");
+            int n = sc.nextInt();
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("InputMismatchException Caught");
+        }
+
+        // 9. FileNotFoundException
+        try {
+            java.io.FileReader file = new java.io.FileReader("abc.txt");
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("FileNotFoundException Caught");
+        }
+
+        // 10. IOException
+        try {
+            java.io.FileWriter fw = new java.io.FileWriter("test.txt");
+            fw.close();
+        } catch (java.io.IOException e) {
+            System.out.println("IOException Caught");
+        }
+
+        // 11. SQLException
+        try {
+            java.sql.Connection con = null;
+            con.close();
+        } catch (java.sql.SQLException e) {
+            System.out.println("SQLException Caught");
+        } catch (NullPointerException e) {
+            System.out.println("Connection is null");
+        }
+
+        // 12. ClassNotFoundException
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException Caught");
+        }
+
+        // 13. InterruptedException
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException Caught");
+        }
+
+        // 14. Exception (Parent Exception)
+        try {
+            int x = 5 / 0;
+        } catch (Exception e) {
+            System.out.println("General Exception Caught");
+        }
+
+        // 15. Finally Block Example
+        try {
+            int num = 10 / 2;
+            System.out.println(num);
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException");
+        } finally {
+            System.out.println("Finally block always executes");
+        }
+    }
+}
+
+
+==============================================================
+
+
+Collections
+=================
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      ArrayList<String> list = new ArrayList<>();
+      list.add("Apple");
+      list.add("Banana");
+      list.add("Cherry");
+      list.add(1, "apple");
+      System.out.println(list);
+      System.out.println(list.get(1));
+      System.out.println(list.remove(1));
+      System.out.println(list);
+      System.out.println(list.size());
+      System.out.println(list.contains("apple"));
+      System.out.println(list.set(1,"apple"));
+      System.out.println(list);
+}
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      ArrayList<Integer> list =
+                new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+
+        System.out.println(list);
+    }
+}
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      ArrayList<Integer> list =
+                new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+
+    for (Integer i : list) {
+      System.out.println(i);
+    }
+    for (int i = 0; i<list.size(); i++) {  
+        System.out.println(list.get(i));
+        }
+    }
+}
+
+=======
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Set<String> set = new HashSet<>();
+      set.add("Apple");
+      set.add("Banana");
+      set.add("apple");  
+      set.add("app");
+      System.out.println(set);
+      set.remove("Apple");
+      System.out.println(set.contains("Apple"));
+      System.out.println(set.size());
+  }
+}
+=========
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+          Map<String, Integer> map = new HashMap<>();
+          map.put("Apple", 10);
+          map.put("Banana", 5);
+          map.put("mango", 1000);
+          map.put("mango", map.getOrDefault("mango", 1)); 
+          // System.out.println(map.remove("Banana"));
+          // update
+          // map.put("Apple", 25);
+          System.out.println(map);
+          // System.out.println(map.containsKey("Apple")); 
+          // System.out.println(map.size()); 
+          // map.clear();
+          // System.out.println(map);
+          // System.out.println(map.keySet());
+          // System.out.println(map.values());
+          for(String s:map.keySet()){
+            System.out.println(s+" "+map.get(s));
+          }
+  }
+}
+
+================================
+Java Functional Programming, Lambda, Stream, Map, Filter, Reduce
+1. Functional Programming in Java
+Functional Programming means writing programs using functions and operations on data instead of changing variables again and again.
+Java introduced Functional Programming features in Java 8.
+Main Features:
+•	Lambda Expressions
+•	Stream API
+•	Functional Interfaces
+•	Method References
+Benefits:
+•	Less code
+•	Easy to read
+•	Easy data processing
+•	Better for collections
+•	Parallel processing support
+Traditional Style:
+for(int i=0; i<list.size(); i++){
+    System.out.println(list.get(i));
+}
+Functional Style:
+list.stream().forEach(x -> System.out.println(x));
+________________________________________
+2. Lambda Expression
+A Lambda Expression is a short way to write anonymous functions.
+Syntax:
+(parameters) -> expression
+Example:
+interface MyInterface {
+    void display();
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        MyInterface obj = () -> {
+            System.out.println("Hello Lambda");
+        };
+
+        obj.display();
+    }
+}
+Output:
+Hello Lambda
+
+interface Add {
+    int sum(int a, int b);
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Add obj = (a, b) -> a + b;
+
+        System.out.println(obj.sum(10, 20));
+    }
+}
+
+
+Explanation:
+•	() -> represents lambda expression
+•	No need to create separate class
+•	Shorter than anonymous class
+________________________________________
+3. Stream API
+Stream is used to process collections in functional style.
+A stream does not store data. It processes data from collections.
+Example:
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> list = Arrays.asList(10,20,30);
+
+        list.stream()
+            .forEach(x -> System.out.println(x));
+    }
+}
+Explanation:
+•	stream() converts collection into stream
+•	forEach() processes every element
+
+
+4. filter()
+filter() is used to select elements based on condition.
+Syntax:
+.filter(condition)
+Example: Print Even Numbers
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(1,2,3,4,5,6);
+
+        nums.stream()
+            .filter(x -> x % 2 == 0)
+            .forEach(x -> System.out.println(x));
+    }
+}
+
+
+5. map()
+map() is used to transform data.
+Syntax:
+.map(transformation)
+Example: Square Every Number
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(1,2,3,4);
+
+        nums.stream()
+            .map(x -> x * x)
+            .forEach(x -> System.out.println(x));
+    }
+}
+
+
+6. reduce()
+reduce() combines all elements into one result.
+Syntax:
+.reduce(initialValue, operation)
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(1,2,3,4,5);
+
+        int sum = nums.stream()
+                      .reduce(0, (a,b) -> a + b);
+
+        System.out.println(sum);
+    }
+}
+ 
+=====================
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(1,2,3,4,5,6);
+
+        int result = nums.stream()
+                         .filter(x -> x % 2 == 0)
+                         .map(x -> x * x)
+                         .reduce(0, (a,b) -> a + b);
+
+        System.out.println(result);
+    }
+}
+==========================
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(5,1,4,2);
+
+        nums.stream()
+            .sorted()
+            .forEach(System.out::println);
+    }
+}
+=====
+
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<Integer> nums = Arrays.asList(1,2,3,4,5);
+
+        List<Integer> even = nums.stream()
+                                 .filter(x -> x % 2 == 0)
+                                 .map(x -> x*x)
+                                 .collect(Collectors.toList());
+        System.out.println(even);
+    }
+}
+
+===================
+11. Stream Flow
+Collection -> Stream -> filter -> map -> reduce -> Result
+Example:
+list.stream()
+    .filter(condition)
+    .map(transformation)
+    .reduce(operation);
+________________________________________
+12. Easy Memory Tricks
+Function	Meaning
+filter	REMOVE unwanted data
+map	CHANGE data
+reduce	MAKE one final value
+stream	PIPELINE processing
+________________________________________
+13. Real-Life Analogy
+Suppose you have student marks:
+10, 20, 30, 40, 50
+filter(): Take only marks greater than 20
+30, 40, 50
+map(): Add 5 bonus marks
+35, 45, 55
+reduce(): Find total marks
+135
+________________________________________
+14. Interview Important Points
+1.	Stream does not modify original collection.
+2.	Streams are lazy.
+3.	filter returns matching elements.
+4.	map transforms elements.
+5.	reduce returns single value.
+6.	Lambda reduces code size.
+7.	Functional programming improves readability.
+
+

@@ -1,0 +1,1088 @@
+========================================================
+CORE JAVASCRIPT CONCEPTS (BASIC TO INTERMEDIATE)
+========================================================
+
+1. WHAT IS JAVASCRIPT?
+--------------------------------------------------------
+JavaScript is a scripting language used to make web pages
+interactive and dynamic.
+
+Used for:
+- Form Validation
+- DOM Manipulation
+- Events
+- API Calls
+- Animations
+- Dynamic Content
+
+Example:
+console.log("Hello JavaScript");
+
+========================================================
+
+2. VARIABLES
+--------------------------------------------------------
+
+var
+let
+const
+
+Example:
+
+var name = "abc";
+let age = 25;
+const country = "India";
+
+Difference:
+
+var
+- Function scoped
+- Can redeclare
+- Can reassign
+
+let
+- Block scoped
+- Cannot redeclare
+- Can reassign
+
+const
+- Block scoped
+- Cannot redeclare
+- Cannot reassign
+
+========================================================
+
+3. DATA TYPES
+--------------------------------------------------------
+
+Primitive Types:
+
+String
+Number
+Boolean
+Undefined
+Null
+BigInt
+Symbol
+
+Example:
+
+let name = "abc";
+let age = 25;
+let isActive = true;
+let salary;
+let value = null;
+
+========================================================
+
+4. OPERATORS
+--------------------------------------------------------
+
+Arithmetic
+
++
+-
+*
+/
+%
+**
+
+Example:
+
+let a = 10;
+let b = 5;
+
+console.log(a + b);
+
+Comparison
+
+==
+===
+!=
+!==
+>
+<
+>=
+<=
+
+Logical
+
+&&
+||
+!
+
+========================================================
+
+5. CONDITIONAL STATEMENTS
+--------------------------------------------------------
+
+if
+
+let age = 18;
+
+if(age >= 18){
+   console.log("Eligible");
+}
+
+if else
+
+if(age >= 18){
+   console.log("Eligible");
+}else{
+   console.log("Not Eligible");
+}
+
+else if
+
+let marks = 80;
+
+if(marks >= 90){
+   console.log("A");
+}
+else if(marks >= 70){
+   console.log("B");
+}
+else{
+   console.log("C");
+}
+
+========================================================
+
+6. SWITCH CASE
+--------------------------------------------------------
+
+let day = 2;
+
+switch(day){
+   case 1:
+      console.log("Monday");
+      break;
+
+   case 2:
+      console.log("Tuesday");
+      break;
+
+   default:
+      console.log("Invalid");
+}
+
+========================================================
+
+7. LOOPS
+--------------------------------------------------------
+
+for Loop
+
+for(let i=1;i<=5;i++){
+   console.log(i);
+}
+
+while Loop
+
+let i = 1;
+
+while(i<=5){
+   console.log(i);
+   i++;
+}
+
+do while
+
+let j = 1;
+
+do{
+   console.log(j);
+   j++;
+}while(j<=5);
+
+========================================================
+
+8. FUNCTIONS
+--------------------------------------------------------
+
+Normal Function
+
+function add(a,b){
+   return a+b;
+}
+
+console.log(add(10,20));
+
+Function Expression
+
+const add = function(a,b){
+   return a+b;
+}
+
+Arrow Function
+
+const add = (a,b) => a+b;
+
+========================================================
+
+9. TEMPLATE LITERALS
+--------------------------------------------------------
+
+let name = "abc";
+
+console.log(`Welcome ${name}`);
+
+let name = "abc";
+let age = 10;
+console.log('welcome '+name+" your age is "+age)
+console.log(`Welcome ${name} your age is ${age}`);
+
+========================================================
+
+10. ARRAYS
+--------------------------------------------------------
+
+let arr = [10,20,30,40];
+
+console.log(arr[0]);
+
+let arr = [1, "abc", {age:20}, false];
+console.log(arr);
+
+Important Methods
+
+push()
+pop()
+shift()
+unshift()
+splice()
+slice()
+includes()
+
+Example:
+
+let arr = [10,20,30,40,50];
+// arr.push(60);
+// console.log(arr);
+// console.log(arr.pop());
+let s1 = arr.shift();  // remove at first
+console.log(arr);
+
+let s2 = arr.unshift(200); // insert at first
+console.log(arr);
+
+let arr3 = arr.slice(1, 3); // not affect original array
+console.log(arr+" --- "+arr3);
+
+let arr2 = arr.splice(1,3); // affects original array
+console.log(arr+ " --- " +arr2);
+
+console.log(arr.includes(20));
+
+========================================================
+
+11. OBJECTS
+--------------------------------------------------------
+
+let student = {
+   id:1,
+   name:"abc",
+   city:"Pondy"
+};
+
+console.log(student.name);
+
+
+let student = {
+   id:1,
+   name:"abc",
+   city:"Pondy",
+   address:{
+     home_num: 121,
+     street: 'xyz'
+   },
+   marks: [80,77,94,100]
+};
+console.log(student);
+console.log(student.name);
+console.log(student.address);
+console.log(student.address.street);
+student.marks.push(98);
+console.log(student.marks);
+
+========================================================
+
+12. DESTRUCTURING
+--------------------------------------------------------
+
+let arr = [10,20,30,40,50];
+
+let [a,b,c] = arr;
+console.log(a+" "+b);
+
+let obj = {
+  name:"abc",
+  age:25
+};
+
+let {name,age} = obj;
+console.log(name, age);
+
+let arr1 = [1,2,3,4];
+// let arr2 = [...arr1,3,4];
+
+let [a, b, ...c] = arr1;
+console.log(a, b, c);
+========================================================
+
+13. SPREAD OPERATOR (...)
+--------------------------------------------------------
+
+let arr1 = [1,2];
+let arr2 = [...arr1,3,4];
+
+console.log(arr2);
+
+========================================================
+
+14. REST PARAMETER
+--------------------------------------------------------
+
+function sum(...nums){
+   console.log(nums);
+}
+
+sum(1,2,3,4);
+========================================================
+
+15. STRING METHODS
+--------------------------------------------------------
+
+length
+toUpperCase()
+toLowerCase()
+trim()
+substring()
+slice()
+replace()
+includes()
+
+Example:
+
+let str = "JavaScript";
+
+console.log(str.toUpperCase());
+
+==================================
+
+// let nums = [1,2,3];
+
+// let result = nums.map(n => n*2);
+
+// let nums = [1,2,3,4];
+
+// let result = nums.filter(n => n%2==0);
+
+let nums = [1,2,3,4];
+
+let result = nums.reduce((a,b)=>a+b);
+
+console.log(result)
+
+===========================
+let nums = [1,"abc", false, {age: 10}];
+nums.forEach(n => console.log(n));
+==============================
+
+callback function
+==============
+
+function greet(name, abc){
+   console.log("Hello " + name);
+   abc();
+}
+
+function done(){
+   console.log("Finished");
+}
+
+greet("abc", done);
+==========================
+
+CLOSURE
+------------------
+
+function outer(){
+   let count = 0;
+   return function(){
+      count++;
+      console.log(count);
+   }
+}
+
+let fun = outer();
+fun();
+fun();
+fun();
+===============
+
+this keyword
+=============
+let obj = {
+   name:"abc",
+
+   display:function(name){
+      console.log(name);
+      console.log(this.name);
+   }
+}
+
+obj.display("xyz");
+
+=====================================
+
+========================================================
+JAVASCRIPT DOM COMPLETE GUIDE
+(BASIC TO INTERMEDIATE)
+========================================================
+
+1. WHAT IS DOM?
+--------------------------------------------------------
+
+DOM = Document Object Model
+
+The DOM represents an HTML document as a tree structure.
+
+JavaScript uses the DOM to:
+
+✓ Access HTML elements
+✓ Modify HTML content
+✓ Change CSS styles
+✓ Handle events
+✓ Create/Delete elements dynamically
+
+Example HTML:
+
+<html>
+<body>
+   <h1>Hello</h1>
+   <p>Welcome</p>
+</body>
+</html>
+
+DOM Tree:
+
+Document
+|
+|-- html
+    |
+    |-- body
+        |
+        |-- h1
+        |
+        |-- p
+
+========================================================
+
+2. SELECTING ELEMENTS
+--------------------------------------------------------
+
+A. getElementById()
+
+Select element using id.
+
+HTML:
+
+<h1 id="title">Hello</h1>
+
+JavaScript:
+
+let heading =
+document.getElementById("title");
+
+console.log(heading);
+
+========================================================
+
+B. getElementsByClassName()
+
+Select elements using class.
+
+HTML:
+
+<p class="msg">One</p>
+<p class="msg">Two</p>
+
+JavaScript:
+
+let data =
+document.getElementsByClassName("msg");
+
+console.log(data);
+
+Returns:
+HTMLCollection
+
+========================================================
+
+C. getElementsByTagName()
+
+HTML:
+
+<p>Hello</p>
+
+JavaScript:
+
+let para =
+document.getElementsByTagName("p");
+
+console.log(para);
+
+========================================================
+
+D. querySelector()
+
+Returns first matching element.
+
+HTML:
+
+<p class="msg">One</p>
+<p class="msg">Two</p>
+
+JavaScript:
+
+let para =
+document.querySelector(".msg");
+
+console.log(para);
+
+========================================================
+
+E. querySelectorAll()
+
+Returns all matching elements.
+
+JavaScript:
+
+let para =
+document.querySelectorAll(".msg");
+
+console.log(para);
+
+Returns:
+NodeList
+
+// let para =
+// // document.getElementsByTagName("p");
+// // para[0].innerHTML = "<h1>hey...</h1>";
+
+let para =
+document.querySelectorAll(".title");
+// console.log(para);
+for(let i=0;i<4;i++){
+  para[i].innerHTML = "<h1>hey...</h1>";
+}
+
+========================================================
+
+3. CHANGING CONTENT
+--------------------------------------------------------
+
+A. innerHTML
+
+HTML:
+
+<p id="demo"></p>
+
+JavaScript:
+
+document.getElementById("demo")
+.innerHTML = "<b>Hello</b>";
+
+Output:
+
+Hello (Bold)
+
+========================================================
+
+B. innerText
+
+document.getElementById("demo")
+.innerText = "Hello DOM";
+
+Displays plain text.
+
+========================================================
+
+C. textContent
+
+document.getElementById("demo")
+.textContent = "Hello";
+
+Similar to innerText.
+
+========================================================
+
+4. CHANGING ATTRIBUTES
+--------------------------------------------------------
+
+HTML:
+
+<img id="img">
+
+JavaScript:
+
+document.getElementById("img")
+.setAttribute(
+   "src",
+   "image.jpg"
+);
+
+========================================================
+
+Get Attribute
+
+let value =
+document.getElementById("img")
+.getAttribute("src");
+
+console.log(value);
+
+========================================================
+
+Remove Attribute
+
+document.getElementById("img")
+.removeAttribute("src");
+
+Example
+=============
+<p id="title">Hello World!</p>
+
+.pTag{
+  background-color: yellow;
+}
+.f-size{
+  font-size: 100px;
+}
+
+document.getElementById("title")
+.setAttribute(
+  "class",
+  "pTag f-size"
+);
+
+
+document.getElementById("title")
+.removeAttribute(
+  "class"
+);
+
+
+5. CHANGING CSS USING DOM
+--------------------------------------------------------
+
+HTML:
+
+<h1 id="title">Hello</h1>
+
+JavaScript:
+
+let heading =
+document.getElementById("title");
+
+heading.style.color = "red";
+heading.style.background = "yellow";
+heading.style.fontSize = "40px";
+
+
+========================================================
+
+6. CLASS MANIPULATION
+--------------------------------------------------------
+
+HTML:
+
+<h1 id="title">Hello</h1>
+
+CSS:
+
+.active{
+   color:red;
+}
+
+JavaScript:
+
+let title =
+document.getElementById("title");
+
+========================================================
+
+Add Class
+
+title.classList.add("active");
+
+========================================================
+
+Remove Class
+
+title.classList.remove("active");
+
+========================================================
+
+Toggle Class
+
+title.classList.toggle("active");
+
+========================================================
+
+Check Class
+
+console.log(
+title.classList.contains("active")
+);
+
+========================================================
+
+7. CREATE ELEMENTS
+--------------------------------------------------------
+
+JavaScript:
+
+let heading =
+document.createElement("h1");
+
+heading.innerText =
+"Welcome";
+
+console.log(heading);
+
+========================================================
+
+8. APPEND ELEMENT
+--------------------------------------------------------
+
+HTML:
+
+<div id="box"></div>
+
+JavaScript:
+
+let heading =
+document.createElement("h1");
+
+heading.innerText =
+"Hello";
+
+document.getElementById("box")
+.appendChild(heading);
+
+========================================================
+
+9. PREPEND ELEMENT
+--------------------------------------------------------
+
+document.getElementById("box")
+.prepend(heading);
+
+Adds element at beginning.
+
+========================================================
+
+10. REMOVE ELEMENT
+--------------------------------------------------------
+
+HTML:
+
+<p id="demo">Hello</p>
+
+JavaScript:
+
+document.getElementById("demo")
+.remove();
+
+<div id="box">
+      
+    </div>
+
+#demo{
+   color:red;
+}
+
+let heading = document.createElement("h1");
+
+heading.innerText ="Welcome";
+
+document.getElementById("box").appendChild(heading);
+
+let heading2 = document.createElement("h2");
+heading2.innerHTML =`<h2 id="demo" class="i-box">Everyone</h2>`;
+
+document.getElementById("box").prepend(heading2);
+
+document.getElementById("demo").remove();
+
+========================================================
+
+11. REPLACE ELEMENT
+--------------------------------------------------------
+
+let oldElement =
+document.getElementById("old");
+
+let newElement =
+document.createElement("h2");
+
+newElement.innerText =
+"New Heading";
+
+oldElement.replaceWith(newElement);
+
+========================================================
+
+12. EVENTS
+--------------------------------------------------------
+
+Events are actions performed by user.
+
+Examples:
+
+click
+mouseover
+mouseout
+keydown
+keyup
+submit
+change
+
+========================================================
+
+13. CLICK EVENT
+--------------------------------------------------------
+
+HTML:
+
+<button id="btn">
+Click
+</button>
+
+JavaScript:
+
+const btn = document.getElementById("btn");
+btn.addEventListener(
+   "click",
+   function(){
+      alert("Clicked");
+   }
+);
+
+========================================================
+
+14. MOUSE EVENTS
+--------------------------------------------------------
+
+mouseover
+
+button.addEventListener(
+   "mouseover",
+   function(){
+      console.log("Mouse Enter");
+   }
+);
+
+========================================================
+
+mouseout
+
+button.addEventListener(
+   "mouseout",
+   function(){
+      console.log("Mouse Leave");
+   }
+);
+
+========================================================
+
+15. KEYBOARD EVENTS
+--------------------------------------------------------
+
+keydown
+
+input.addEventListener(
+   "keydown",
+   function(){
+      console.log("Key Pressed");
+   }
+);
+
+========================================================
+
+keyup
+
+input.addEventListener(
+   "keyup",
+   function(){
+      console.log("Key Released");
+   }
+);
+========================================================
+
+Examples:
+==============
+
+<input id="ip" type="text" />
+            <button id="btn">
+              Click
+            </button>
+        <h1 id="result"></h1>
+
+// const btn = document.getElementById("btn");
+// btn.addEventListener(
+//   "click",
+//   function(){
+//       alert("Clicked");
+//   }
+// );
+
+// btn.addEventListener(
+//   "mouseover",
+//   function(){
+//       console.log("Mouse Enter");
+//   }
+// );
+
+// btn.addEventListener(
+//   "mouseout",
+//   function(){
+//       console.log("Mouse Enter");
+//   }
+// );
+// let name="";
+// let head = document.getElementById('name');
+// const ip = document.getElementById("ip");
+// ip.addEventListener(
+//   "keydown",
+//   function(e){
+//     name+=e.key;
+//     head.innerText = name;
+//       console.log(name);
+//   }
+// );
+
+
+// let input = document.getElementById('ip');
+// let btn = document.getElementById('btn');
+// let res = document.getElementById('result')
+// btn.addEventListener(
+//   "click",
+//   function(){
+//       // console.log(input.value)
+//       res.innerText = input.value;
+//   }
+// );
+
+
+23. LOCATION OBJECT
+--------------------------------------------------------
+
+Current URL
+
+console.log(
+window.location.href
+);
+
+Reload Page
+
+location.reload();
+
+========================================================
+
+24. TIMER FUNCTIONS
+--------------------------------------------------------
+
+setTimeout()
+
+setTimeout(
+   function(){
+      console.log("Hello");
+   },
+   2000
+);
+
+Runs once after 2 seconds.
+
+========================================================
+
+setInterval()
+
+setInterval(
+   function(){
+      console.log("Running");
+   },
+   1000
+);
+
+Runs repeatedly.
+
+========================================================
+
+Stop Interval
+
+let id = setInterval(...);
+
+clearInterval(id);
+
+
+========================
+<h1 id="result"></h1>
+let res = document.getElementById('result')
+let id = setInterval(
+  function(){
+    res.innerText += ".";
+  },
+  1500
+);
+clearInterval(id);
+
+========================================
+
+const date = new Date();
+
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+console.log(date.getDay());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+console.log(date.getMilliseconds());
+
+===============================
+
+const date = new Date();
+
+console.log(date.toLocaleTimeString());
+console.log(date.toLocaleString());
+console.log(date.toUTCString());
+
+============================
+
+Math functions
+===============
+| Method        | Example            | Output |
+| ------------- | ------------------ | ------ |
+| Math.round()  | Math.round(4.6)    | 5      |
+| Math.floor()  | Math.floor(4.9)    | 4      |
+| Math.ceil()   | Math.ceil(4.1)     | 5      |
+| Math.abs()    | Math.abs(-10)      | 10     |
+| Math.sqrt()   | Math.sqrt(25)      | 5      |
+| Math.pow()    | Math.pow(2,3)      | 8      |
+| Math.max()    | Math.max(10,20,30) | 30     |
+| Math.min()    | Math.min(10,20,30) | 10     |
+| Math.random() | Math.random()      | 0-1    |
+
+=============================
+console.log(Math.random());
+
+** Random Number Between 1 and 10
+
+const randomNumber =
+    Math.floor(Math.random() * 10) + 1;
+
+console.log(randomNumber); 
+

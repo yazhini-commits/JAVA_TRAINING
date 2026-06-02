@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <body>
+    <button id="btn">Hover Me</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+
+      let colors = ["red", "blue", "green", "yellow", "orange"];
+
+      btn.onmouseover = function () {
+        let index = Math.floor(Math.random() * colors.length);
+
+        btn.style.backgroundColor = colors[index];
+      };
+    </script>
+  </body>
+</html>

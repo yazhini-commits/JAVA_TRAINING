@@ -1,0 +1,777 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      // int arr[][] = new int[5][5];
+      int arr[][] = {
+        {1,2,3},
+        {4,5,6,7},
+        {8,9}
+      };
+      // 6 22 17
+      
+      // System.out.println(Arrays.deepToString(arr));
+      // System.out.println(Arrays.toString(arr[2]));
+      // System.out.println(arr[1][0]);
+      // arr[1][1] = 10;
+      // System.out.println(Arrays.deepToString(arr));
+      // System.out.println(arr.length);
+      // System.out.println(arr[1].length);
+      
+      // for(int i=0;i<arr.length;i++){
+      //   for(int j=0;j<arr[i].length;j++){
+      //     System.out.print(arr[i][j]+" ");
+      //   }
+      //   System.out.println();
+      
+      int sum = 0;
+      for(int i=0;i<arr.length;i++){
+        for(int j=0;j<arr[i].length;j++){
+          sum += arr[i][j];
+        }
+        System.out.println(sum);
+        sum=0;
+      }
+    }
+}
+
+===============
+1) Sum of rows in matrix
+input = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+    ]
+# op = 6 15 24
+
+2) sum of column in matrix
+li = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+    ]
+# op = 12 15 18
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      // int arr[][] = new int[5][5];
+      int arr[][] = {
+        {1,2,3},  // 00 01 02
+        {4,5,6},  // 10 11 12
+        {7,8,9}   // 20 21 22
+      };
+      
+      int sum = 0;
+      for(int i=0;i<arr.length;i++){
+        for(int j=0;j<arr[i].length;j++){
+          sum += arr[j][i];
+        }
+        System.out.println(sum);
+        sum=0;
+      }
+    }
+}
+======================
+class Main {
+    public static void main(String[] args) {
+        int n =11;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i==j || i+j == n-1)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+}
+=====================
+
+1. DIAGONAL MATRIX
+ 
+Diagonal Matrix: A square matrix which has zeros everywhere other than the main diagonal. 
+Entries on the main diagonal may be any number, including 0.
+
+Let's take a look at a diagonal matrix of order 4 X 4:
+
+8 0 0 0
+0 5 0 0
+0 0 2 0
+0 0 0 9                                                 
+ 
+Write a program to find whether a given matrix is a diagonal matrix or not.
+
+Input Format:
+The input consists of (n*n+1) integers.
+The first integer corresponds to the number of rows/columns in the matrix.
+The remaining integers correspond to the elements in the matrix. 
+The elements are read in row-wise order, the first row first, then the second row, and so on. Assume that the maximum value of m and n is 5.
+ 
+Output Format:
+Print yes if it is a diagonal matrix. Print no if it is not a diagonal matrix.
+ 
+Sample Input 1:
+2
+4 5
+5 4
+Sample Output 1:
+no
+ 
+Sample Input 2:
+2
+1 0
+0 2
+Sample Output 2:
+yes
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int arr[][] = new int[n][n];
+      for(int i=0;i<arr.length;i++){
+        for(int j=0;j<arr[i].length;j++){
+          arr[i][j] = sc.nextInt();
+        }
+      }
+      boolean flag = false;
+      for(int i=0;i<arr.length;i++){
+        for(int j=0;j<arr[i].length;j++){
+          if((i==j && arr[i][j] == 0) || (i!=j && arr[i][j] != 0)){
+            flag = true;
+            break;
+          }
+        }
+        if(flag) break;
+      }
+      if(flag)
+        System.out.println("No");
+      else
+        System.out.println("Yes");
+    }
+}
+===================
+
+2.  Row with Maximum Number Of 1s
+ 
+Given a boolean 2D array, write a program to find the row with the maximum number of 1s.
+
+Input Format:
+The first line of the input consists of an integer, r that corresponds to the number of rows in the matrix.
+The next line of the input consists of an integer, c that corresponds to the number of columns in the matrix.
+The next 'm*n' lines in the input corresponds to the elements in the matrix.
+
+Output Format:
+Output is an integer.
+Print least index if more than one rows have maximum number of 1’s
+Refer sample input and output for formatting details.
+
+Sample Input1:
+4
+4
+1 0 0 0
+0 0 1 1
+1 1 1 0
+1 0 0 0
+Sample Output1:
+2
+
+======================
+Array questions
+
+6. Mean and Median
+
+Develop a program to calculate the Mean and Median in an Array.
+
+Mean Ideology:
+        Given ‘N’ size unsorted or sorted array,
+                            
+Median Ideology:
+       Given the ‘N’ size sorted array, the middle element is called Median if ‘N’ is odd;
+	otherwise, the average of two elements in the middle, if ‘N’ is even.
+
+Input Format:
+In the first line, read a positive integer that represents the number of elements in an array.
+In the second line, read integer elements for the above array.
+
+Output Format:
+Display the Mean and Median values.
+Restrict the decimal places to two.    
+
+Sample Input 1:
+10
+4978 11735 14216 14470 38120 51135 64630 67060 73429 99233
+
+Sample Output 1:
+Mean : 43900.60
+Median : 44627.50
+
+Sample Input 2:
+8
+1 3 4 2 6 5 8 7
+
+Sample Output 2:
+Mean : 4.50
+Median : 4.50
+
+---------------------------
+
+MAJORITY ELEMENT
+
+Write a program that prints the majority element in an array.
+A majority element in an array of size n is an element that appears more than n/2 times.
+1. If there exists majority element, then display that element.
+2. If not exists, then display “No Majority Element exists”
+ 
+Input Format:
+The first line of the input consists of an integer, n that corresponds to the number of elements in the input array.
+The next 'n' lines in the input correspond to the elements in the array.
+
+Output Format:
+Refer sample input and output for formatting specifications.
+
+Sample Input1:
+9
+3
+3
+4
+2
+4
+4
+2
+4
+4
+Sample Output1:
+4
+ 
+Sample Input2:
+8
+3
+3
+4
+2
+4
+4
+2
+4
+Sample Output1:
+No Majority Element exists
+-----------------------------------------
+
+7. Mode in Array
+
+Develop a program to calculate Mode in an Array.
+
+Mode:
+In statistics maths, a mode is a value that occurs the highest number of times.
+
+Example:
+                 Consider a set { 3, 5, 2, 7, 3 },
+                                  Mode = 3
+Since 3 appears more than any other number.
+If more than one mode is there, display the least index number.
+Refer sample input and output.
+
+Input Format:
+In the first line, read a positive integer that represents the number of elements in an array.
+In the second line, read integer elements for the above array.
+
+Output Format:
+Display the Mode value.
+
+Sample Input 1:
+6
+3 5 2 7 3 1
+Sample Output 1:
+Mode is 3
+
+Sample Input 2:
+5
+9 9 9 9 9
+Sample Output 2:
+Mode is 9
+
+Sample Input 3:
+8
+34 56 76 56 88 76 55 99
+Sample Output 3:
+Mode is 56
+
+===========================
+
+Matrix Rotations
+-----------------
+input matrix
+----------------
+1 2 3
+4 5 6
+7 8 9
+
+Rotation questions
+-----------------------
+1) Horizontal Flip / Row-wise Reverse
+3 2 1
+6 5 4
+9 8 7
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      int arr[][] = {
+        {1,2,3},  // 00 01 02
+        {4,5,6},  // 10 11 12
+        {7,8,9}   // 20 21 22
+      };
+      // 3 2 1    02 01 00
+      // 6 5 4    12 11 10
+      // 9 8 7    22 21 20
+      for(int i=0;i<arr.length;i++){
+        for(int j=arr.length-1;j>=0;j--){
+          System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+      }
+    }
+}
+
+=============
+2) Vertical Flip / Column-wise Reverse
+
+7 8 9 
+4 5 6 
+1 2 3 
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      int arr[][] = {
+        {1,2,3},  // 00 01 02
+        {4,5,6},  // 10 11 12
+        {7,8,9}   // 20 21 22
+      };
+      // 7 8 9    20 21 22
+      // 4 5 6    10 11 12
+      // 1 2 3    00 01 02
+      
+      for(int i=arr.length-1;i>=0;i--){
+        for(int j=0;j<arr.length;j++){
+          System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+      }
+    }
+}
+
+
+3)
+7 4 1
+8 5 2
+9 6 3
+
+
+
+4) 
+9 6 3 
+8 5 2 
+7 4 1 
+
+
+
+5) Horizontal Flip + Vertical Flip
+9 8 7
+6 5 4
+3 2 1
+
+6) 270° Clockwise (or 90° Counter clockwise)
+3 6 9
+2 5 8
+1 4 7
+
+====================
+
+Storing matrix rotation values
+=============================
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+      int arr[][] = {
+        {1,2,3},  // 00 01 02
+        {4,5,6},  // 10 11 12
+        {7,8,9}   // 20 21 22
+      };
+      // 7 8 9    20 21 22
+      // 4 5 6    10 11 12
+      // 1 2 3    00 01 02
+      int n = arr.length;
+      int res[][] = new int[n][n];
+      int row = 0, col = 0;
+      for(int i=n-1;i>=0;i--){
+        for(int j=0;j<n;j++){
+          res[row][col++] = arr[i][j];
+        }
+        row++;
+        col=0;
+      }
+      System.out.println(Arrays.deepToString(res));
+    }
+}
+===========
+
+String
+===========
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String s1 = "abcde";
+      String s2 = "abcde";
+      String s3 = new String("abcde");
+      System.out.println(s1 == s2);
+      System.out.println(s1.equals(s3));
+    }
+}
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String s1 = "abcdeab";
+      String s2 = "abcde";
+      String s3 = new String("abcde");
+      // System.out.println(s1.equals(s3));
+      
+      // System.out.println(s1.charAt(0));
+      // System.out.println(s1.substring(0, 2));
+      // s1 = s1.replaceFirst("a", "z");
+      // s1 = s1.replace("abc", "x");
+      
+      // remove
+      s1 = s1.replace("a", "");
+      
+      System.out.println(s1);
+    }
+}
+============
+String methods in JAVA
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+1. length()
+Returns the length of the string.
+
+String str = "Hello, world!";
+System.out.println(str.length()); // Output: 13
+
+
+2. charAt(int index)
+Returns the character at the specified index.
+
+String str = "Hello";
+System.out.println(str.charAt(1)); // Output: 'e'
+
+
+3. substring(int start)
+Returns a new string that is a substring starting from the specified index to the end of the string.
+
+String str = "Hello, world!";
+System.out.println(str.substring(7)); // Output: "world!"
+
+
+4. substring(int start, int end)
+Returns a new string that is a substring from the start index (inclusive) to the end index (exclusive).
+
+String str = "Hello, world!";
+System.out.println(str.substring(0, 5)); // Output: "Hello"
+
+
+5. indexOf(String str)
+Returns the index of the first occurrence of the specified substring.
+
+String str = "Hello, world!";
+System.out.println(str.indexOf("world")); // Output: 7
+
+
+6. indexOf(char ch)
+Returns the index of the first occurrence of the specified character.
+
+String str = "Hello";
+System.out.println(str.indexOf('l')); // Output: 2
+
+
+7. lastIndexOf(String str)
+Returns the index of the last occurrence of the specified substring.
+
+
+
+String str = "Hello, world!";
+System.out.println(str.lastIndexOf("o")); // Output: 8
+
+
+8. lastIndexOf(char ch)
+Returns the index of the last occurrence of the specified character.
+
+
+
+String str = "Hello";
+System.out.println(str.lastIndexOf('l')); // Output: 3
+
+
+9. equals(Object obj)
+Compares the string to the specified object.
+
+
+String str1 = "Hello";
+String str2 = "Hello";
+System.out.println(str1.equals(str2)); // Output: true
+
+
+10. equalsIgnoreCase(String anotherString)
+Compares the string to the specified string, ignoring case differences.
+
+String str1 = "Hello";
+String str2 = "hello";
+System.out.println(str1.equalsIgnoreCase(str2)); // Output: true
+
+
+11. toLowerCase()
+Converts all characters in the string to lowercase.
+
+String str = "HELLO";
+System.out.println(str.toLowerCase()); // Output: "hello"
+
+
+12. toUpperCase()
+Converts all characters in the string to uppercase.
+
+String str = "hello";
+System.out.println(str.toUpperCase()); // Output: "HELLO"
+
+
+13. trim()
+Removes any leading and trailing whitespace from the string.
+
+String str = "  Hello, world!  ";
+System.out.println(str.trim()); // Output: "Hello, world!"
+
+
+14. replace(char oldChar, char newChar)
+Returns a new string with all occurrences of the old character replaced with the new character.
+
+String str = "Hello, world!";
+System.out.println(str.replace('o', '0')); // Output: "Hell0, w0rld!"
+
+
+15. replaceAll(String regex, String replacement)
+Replaces each substring of the string that matches the given regular expression with the given replacement.
+
+
+
+String str = "Hello 123 World";
+System.out.println(str.replaceAll("\\d", "*")); // Output: "Hello *** World"
+
+
+16. split(String regex)
+Splits the string around matches of the given regular expression.
+
+String str = "apple,banana,orange";
+String[] fruits = str.split(",");
+for (String fruit : fruits) {
+    System.out.println(fruit); 
+}
+// Output:
+// apple
+// banana
+// orange
+
+17. startsWith(String prefix)
+Checks if the string starts with the specified prefix.
+
+String str = "Hello, world!";
+System.out.println(str.startsWith("Hello")); // Output: true
+
+
+18. endsWith(String suffix)
+Checks if the string ends with the specified suffix.
+
+String str = "Hello, world!";
+System.out.println(str.endsWith("world!")); // Output: true
+
+
+19. contains(CharSequence sequence)
+Checks if the string contains the specified sequence of characters.
+
+String str = "Hello, world!";
+System.out.println(str.contains("world")); // Output: true
+
+
+20. isEmpty()
+Checks if the string is empty (length is 0).
+
+String str = "";
+System.out.println(str.isEmpty()); // Output: true
+
+
+21. valueOf(int i)
+Returns the string representation of the specified integer.
+
+int num = 123;
+System.out.println(String.valueOf(num)); // Output: "123"
+
+
+22. format(String format, Object... args)
+Returns a formatted string using the specified format and arguments.
+
+String str = String.format("Hello, %s!", "World");
+System.out.println(str); // Output: "Hello, World!"
+
+
+23. concat(String str)
+Concatenates the specified string to the end of the current string.
+
+String str1 = "Hello";
+String str2 = " World!";
+System.out.println(str1.concat(str2)); // Output: "Hello World!"
+
+
+24. String.join(CharSequence delimiter, CharSequence... elements)
+Joins multiple strings with a specified delimiter.
+
+
+String str = String.join(", ", "apple", "banana", "orange");
+System.out.println(str); // Output: "apple, banana, orange"
+
+
+25. toCharArray()
+Converts the string to an array of characters.
+
+String str = "Hello";
+char[] chars = str.toCharArray();
+for (char c : chars) {
+    System.out.println(c);
+}
+// Output:
+// H
+// e
+// l
+// l
+// o
+
+
+26. compareTo(String anotherString)
+Compares two strings lexicographically.
+
+String str1 = "apple";
+String str2 = "banana";
+System.out.println(str1.compareTo(str2)); // Output: -1 (because "apple" is lexicographically less than "banana")
+
+
+
+27. compareToIgnoreCase(String anotherString)
+Compares two strings lexicographically, ignoring case differences.
+
+
+String str1 = "apple";
+String str2 = "APPLE";
+System.out.println(str1.compareToIgnoreCase(str2)); // Output: 0 (because "apple" and "APPLE" are the same ignoring case)
+
+=======================
+
+Strings
+-------------------------------------
+
+Basics
+---------------
+0) String pattern
+ip = "hello"
+op = h
+     he
+     hel
+     hell
+     hello
+
+1) Remove duplicate char from string
+# ip = "abcaabcade"
+# op = abcde
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String s1 = "abcaabcade";
+      String res="";
+      int n = s1.length();
+      for(int i=0;i<n;i++){
+        char c = s1.charAt(i);
+        if(!res.contains(c+"")){
+          res += c;
+        }
+      }
+      System.out.println(res);
+    }
+}
+
+
+2) Remove vowels from string
+# ip = "hello all"
+# op = hll ll
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String s1 = "hello all";
+      String vowels="aAeEiIoOuU";
+      int n = vowels.length();
+      for(int i=0;i<n;i++){
+        char c = vowels.charAt(i);
+        if(s1.contains(c+"")){
+          s1 = s1.replace(c+"", "");
+        }
+      }
+      System.out.println(s1);
+    }
+}
+
+3) String Program to Remove Leading Zeros
+Input: "000012035609800"
+Output: 12035609800
+
+String s1 = "000012035609800";
+System.out.println(Long.parseLong(s1));
+
+5) Count Character Frequency
+•	Input: 'hello'
+•	Output: h:1 e:1 l:2 o:1
+•	Input: 'aabbc'
+•	Output: a:2 b:2 c:1
+
+
+
+6) Update a specific mid char from string
+input1: "abcabcade" 
+input2: "a" 
+input3: "z"
+op: abczbcade
+
+
+ip1: "abc"
+ip2: "a"
+ip3: "x"
+op: xbc
+
+ip1: "abca"
+ip2: "a"
+ip3: "x"
+op:  abcx
+
+
+=============================
