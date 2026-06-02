@@ -19,6 +19,5 @@ This repository contains the programs, assignments, hands-on exercises, and proj
 To strengthen Java programming skills and gain practical exposure to industry-standard software development practices through the Cognizant Digital Nurture Program.
 
 ## Author
-**Yazhini Ganesan**
-B.Tech Computer Science and Engineering
-Sri Manakula Vinayagar Engineering College
+## Author
+**Yazhini Ganesan** | B.Tech Computer Science and Engineering | Sri Manakula Vinayagar Engineering College
