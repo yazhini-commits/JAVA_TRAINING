@@ -1,0 +1,276 @@
+Timer JS
+==========
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            font-family: 'Arial', sans-serif;
+        }
+        .btn-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            padding:50px;
+        }
+        .btn{
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 20px 30px;
+            margin-right: 30px;
+        }
+        .start{
+            background-color: #4CAF50;
+        }
+        .stop{
+            background-color: #ccc;
+        }
+        .reset{
+            background-color: #f4fc1f;
+        }
+        </style>
+</head>
+<body>  
+    <div id="timer">
+        <h1 id="hours">00</h1>
+        <h1>:</h1>
+        <h1 id="minutes">00</h1>
+        <h1>:</h1>
+        <h1 id="seconds">00</h1>
+    </div>
+    <div class="btn-box">
+        <button id="start" class="btn start" onclick="startTimer()" >Start</button>
+        <button id="stop" class="btn stop" onclick="stopTimer()" disabled>Stop</button>
+        <button id="reset"  class="btn reset" onclick="resetTimer()" >Reset</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+========================================
+
+let hour = document.getElementById("hours");
+let minute = document.getElementById("minutes");
+let second = document.getElementById("seconds");
+let start = document.getElementById("start");
+let stop = document.getElementById("stop");
+
+let sec = 0;
+let min = 0;
+let hr = 0;
+let timer = null;
+
+function startTimer() {
+  start.disabled = true;
+  start.style.backgroundColor = "#ccc";
+  stop.disabled = false;
+  stop.style.backgroundColor = "#f44336";
+  timer = setInterval(() => {
+    sec++;
+    second.innerHTML = sec < 10 ? "0" + sec : sec;
+    if (sec > 59) {
+      sec = 0;
+      second.innerHTML = "00";
+      min++;
+      minute.innerHTML = min < 10 ? "0" + min : min;
+    }
+    if (min > 59) {
+      min = 0;
+      minute.innerHTML = "00";
+      hr++;
+      hour.innerHTML = hr < 10 ? "0" + hr : hr;
+    }
+    if (hr > 59) {
+      hour.innerHTML = "00";
+    }
+    console.log(sec, min, hr);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  start.disabled = false;
+  start.style.backgroundColor = "#4CAF50";
+  stop.disabled = true;
+  stop.style.backgroundColor = "#ccc";
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  start.disabled = false;
+  start.style.backgroundColor = "#4CAF50";
+  stop.disabled = true;
+  stop.style.backgroundColor = "#ccc";
+  sec = 0;
+  min = 0;
+  hr = 0;
+  second.innerHTML = "00";
+  minute.innerHTML = "00";
+  hour.innerHTML = "00";
+}
+
+=============================
+
+Mysql
+
+CREATE TABLE Employee(
+    emp_id INT PRIMARY KEY,
+    
+    emp_name VARCHAR(50) NOT NULL,
+    
+    email VARCHAR(100) UNIQUE,
+    
+    age INT CHECK(age >= 18),
+    
+    city VARCHAR(50) DEFAULT 'Chennai'
+    
+);
+
+INSERT INTO Employee VALUES
+(1,'abc','abc@gmail.com',25,'Chennai'),
+(2,'xyz','xyz@gmail.com',22,'Madurai'),
+(3,'pqr','pqr@gmail.com',30,'Coimbatore'),
+(4,'test','test@gmail.com',20, "chennai"),
+(5,'alex','alex@gmail.com',28,'Salem');
+
+INSERT INTO Employee(
+    emp_id,
+    emp_name,
+    email,
+    age
+)
+VALUES(
+    6,
+    'hello',
+    'hello@gmail.com',
+    18
+);
+
+select * from Employee;
+
+-- UPDATE Employee
+-- SET city='Chennai'
+-- WHERE emp_id=1;
+
+-- DELETE FROM Employee
+-- WHERE emp_id=2;
+
+-- SELECT * FROM Employee;
+
+-- SELECT emp_name, city
+-- FROM Employee;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE age > 20;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE city='Chennai'
+-- AND age > 20;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE city='Chennai'
+-- OR city='Madurai';
+
+-- SELECT *
+-- FROM Employee
+-- WHERE NOT city='Chennai';
+
+-- SELECT DISTINCT city
+-- FROM Employee;
+
+-- SELECT *
+-- FROM Employee
+-- ORDER BY age ASC;
+
+-- SELECT *
+-- FROM Employee
+-- ORDER BY age DESC;
+
+SELECT *
+-- FROM Employee
+-- WHERE emp_name LIKE 'a%';
+
+-- SELECT *
+-- FROM Employee
+-- WHERE emp_name LIKE '%z';
+
+-- SELECT *
+-- FROM Employee
+-- WHERE emp_name LIKE '%e%';
+
+-- SELECT *
+-- FROM Employee
+-- WHERE emp_name LIKE '_b%';
+
+-- SELECT *
+-- FROM Employee
+-- WHERE city IN ('Chennai','Madurai');
+
+-- SELECT *
+-- FROM Employee
+-- WHERE city NOT IN ('Chennai','Madurai');
+
+-- SELECT *
+-- FROM Employee
+-- WHERE age BETWEEN 20 AND 25;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE age NOT BETWEEN 20 AND 25;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE email IS NULL;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE email IS NOT NULL;
+
+-- SELECT *
+-- FROM Employee
+-- LIMIT 3;
+
+
+-- SELECT emp_name AS Name,
+--       city AS Location
+-- FROM Employee;
+
+-- SELECT COUNT(*)
+-- FROM Employee;
+
+-- SELECT MAX(age)
+-- FROM Employee;
+
+-- SELECT MIN(age)
+-- FROM Employee;
+
+-- SELECT AVG(age)
+-- FROM Employee;
+
+-- SELECT SUM(age)
+-- FROM Employee;
+
+-- SELECT city, COUNT(*)
+-- FROM Employee
+-- GROUP BY city;
+
+-- SELECT city, COUNT(*)
+-- FROM Employee
+-- GROUP BY city
+-- HAVING COUNT(*) > 1;
+=================
+https://www.codechef.com/practice/sql-case-studies-topic-wise
