@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            font-family: 'Arial', sans-serif;
+        }
+        .btn-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            padding:50px;
+        }
+        .btn{
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 20px 30px;
+            margin-right: 30px;
+        }
+        .start{
+            background-color: #4CAF50;
+        }
+        .stop{
+            background-color: #f44336;
+        }
+        .reset{
+            background-color: #f4fc1f;
+        }
+        </style>
+</head>
+<body>  
+    <div id="timer">
+        <h1 id="hours">00</h1>
+        <h1>:</h1>
+        <h1 id="minutes">00</h1>
+        <h1>:</h1>
+        <h1 id="seconds">00</h1>
+    </div>
+    <div class="btn-box">
+        <button class="btn start" onclick="startTimer()" >Start</button>
+        <button class="btn stop" onclick="stopTimer()" >Stop</button>
+        <button class="btn reset" onclick="resetTimer()" >Reset</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+===============
+
+let hour = document.getElementById("hours");
+let minute = document.getElementById("minutes");
+let second = document.getElementById("seconds");
+let sec = 0;
+let min = 0;    
+let hr = 0;
+let timer = null;
+
+function startTimer() {
+    timer =setInterval(() => {
+    sec++;
+    second.innerHTML = sec < 10 ? "0" + sec : sec;
+    if (sec > 59) {
+        sec = 0;
+        second.innerHTML = "00";
+        min++;
+        minute.innerHTML = min < 10 ? "0" + min : min;
+    }
+    if (min > 59) {
+        min = 0;
+        minute.innerHTML = "00";
+        hr++;
+        hour.innerHTML = hr < 10 ? "0" + hr : hr;
+    }
+    if (hr > 59) {
+        hour.innerHTML = "00";
+    }   
+    console.log(sec, min, hr);
+}, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    sec = 0;
+    min = 0;
+    hr = 0;
+    second.innerHTML = "00";
+    minute.innerHTML = "00";
+    hour.innerHTML = "00";
+}
