@@ -1,0 +1,18 @@
+=============
+Questions (hackerank)
+=============
+6) Delete duplicate-value nodes from a sorted linked list
+7) Delete a Node
+8) Get Node Value
+9) Cycle Detection
+10) Find Merge Point of Two Lists
+
+=========================
+Tasks
+========================
+1. create a find method
+2. find occurrence of an value from linked list ([1,2,3,4,1,1,2] , 1 => 3)
+3. find length of the list
+4. find mid value of the list
+5. update value 
+6. update value based on position

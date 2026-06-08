@@ -1,0 +1,239 @@
+TIME COMPLEXITY EXPLANATION WITH SIMPLE LOOP EXAMPLES
+
+1) O(1) - CONSTANT TIME
+===============================
+
+Example: 
+	System.out.println(“Hello”);
+
+	or
+
+	if(true)
+		System.out.println(“if”);
+	else
+		System.out.println(“else”);
+
+
+
+
+2) O(log n) - LOGARITHMIC TIME
+==================================
+
+* Problem size reduces by half each iteration.
+
+Example: 
+int n = 16; 
+while (n > 1) { 
+	n = n / 2; 
+	System.out.println(n); 
+	}
+
+* Each step divides n by 2.
+
+
+
+3) O(n) - LINEAR TIME
+===============================
+
+* Time grows directly proportional to input size.
+
+Example: 
+	int n = 10;
+	for (int i = 0; i < n; i++) 
+	{ 
+		System.out.println(i); 
+	}
+
+* If n increases, loop runs n times.
+
+
+
+4) O(n log n)
+===============================
+
+* Combination of linear and logarithmic.
+
+Example: 
+	int n=5;
+	for (int i = 0; i < n; i++) { 
+		int temp = n; 
+		while (temp > 1) {
+			temp = temp / 2;
+		}
+	}
+
+
+* Outer loop runs n times. Inner loop runs log n times.
+
+
+
+5) O(n^2) - QUADRATIC TIME
+===============================
+
+* Two nested loops.
+
+Example: 
+
+	int n = 5;
+	for (int i = 0; i < n; i++) { 
+		for (int j = 0; j < n; j++) {
+			System.out.println(i + ” ” + j); 
+		} 
+	}
+
+* Total operations = n * n = n^2
+
+
+
+6) O(n^3) - CUBIC TIME
+===============================
+
+* Three nested loops.
+
+Example: 
+	for (int i = 0; i < n; i++) { 
+		for (int j = 0; j < n; j++) { 
+			for(int k = 0; k < n; k++) { 
+				System.out.println(i + ” ” + j + ” ” + k); 
+		}
+	 }
+}
+
+* Total operations = n * n * n = n^3
+
+
+7) O(2^n) - EXPONENTIAL TIME
+===============================
+
+* Work doubles every step.
+
+Example: 
+	for (int i = 1; i <= n; i++) { 
+		int limit = (int) Math.pow(2, i);
+		for (int j = 0; j < limit; j++) { 
+			System.out.println(j); 
+		} 
+	}
+
+* Operations grow like 2^n.
+
+
+
+8) O(n!) - FACTORIAL TIME
+===============================
+
+* Growth like n factorial.
+
+Example: 
+	int fact = 1; 
+	for (int i = 1; i <= n; i++) { 
+		fact *= i; 
+	}
+
+	for (int i = 0; i < fact; i++) { 
+		System.out.println(i); 
+	}
+
+
+* Loop runs n! times.
+
+
+
+=============================================
+TIME COMPLEXITY ORDER (FASTEST TO SLOWEST)
+=============================================
+n = 5
+O(1) 
+O(log n)  = 2
+O(n) = 5
+O(n log n)  = 10
+O(n^2) = 25
+O(n^3) = 125
+O(2^n) = 32
+O(n!) = 120
+
+===========================================
+class Main {
+    public static void main(String[] args) {
+        Node n1 = new Node(10);
+        System.out.println(n1.data+" "+n1.next);
+        Node n2 = new Node(20);
+        n1.next = n2;
+        System.out.println(n1.next.data+" "+n1.next.next);
+        
+        System.out.println(n2.data+" "+n2.next);
+    }
+}
+class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+==========================================
+class Main {
+    public static void main(String[] args) {
+        Node n1 = new Node(10);
+        n1.next = new Node(20);
+        n1.next.next = new Node(30);
+        n1.next.next.next = new Node(40);
+        System.out.println(n1.data+" "+n1.next);
+        System.out.println(n1.next.data+" "+n1.next.next);
+        System.out.println(n1.next.next.data+" "+n1.next.next.next);
+        System.out.println(n1.next.next.next.data+" "+n1.next.next.next.next);
+    }
+}
+class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+==========================================
+class Main {
+    public static void main(String[] args) {
+        SinglyLinkedList sll = new SinglyLinkedList();
+        sll.insertEnd(10);
+        sll.insertEnd(20);
+        sll.insertStart(30);
+        // sll.insertEnd(40);
+    }
+}
+class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
+    }
+}
+class SinglyLinkedList{
+    Node head = null;
+    Node tail = null;
+    void insertEnd(int data){
+        Node newNode = new Node(data);
+        if(this.head == null){
+            this.head = newNode;
+            this.tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        tail = newNode;
+        // System.out.println(head.data+" "+tail.data);
+    }
+    void insertStart(int data){
+        Node newNode = new Node(data);
+        if(this.head == null){
+            this.head = newNode;
+            this.tail = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+        System.out.println(head.data+" "+tail.data);
+    }
+}
