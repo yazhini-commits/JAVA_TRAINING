@@ -2,10 +2,10 @@ package LINKED_LIST_METHODS;
 
 import java.util.Scanner;
 
-public class UPDATE_VALUE {
-     public static void main(String[] args){
+public class UPDATE_POSITION {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        Sll2 s = new Sll2();
+        Sll3 s = new Sll3();
         s.insertEnd(10);
         s.insertEnd(20);
         s.insertEnd(30);
@@ -14,26 +14,12 @@ public class UPDATE_VALUE {
         s.insertEnd(60);
         s.insertEnd(70);
         s.traversal();
-        s.update();
-        s.traversal();
-        
-        
-
+        s.update_position();
+        s.traversal();   
     }
     
 }
-
-class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-class Sll2 {
+class Sll3 {
     Node head = null;
     Node tail = null;
 
@@ -59,31 +45,35 @@ class Sll2 {
         }
         System.out.println();
     }
-    void update(){
+    void update_position(){
         Scanner sc = new Scanner(System.in);
         if(head==null){
             System.out.println("The list is empty!");
             return;
         }
-        System.out.println("Enter the value: ");
-        int val=sc.nextInt();
+        System.out.println("Enter the position: ");
+        int pos=sc.nextInt();
         System.out.println("Enter the new value: ");
-        int new_val = sc.nextInt();
+        int val = sc.nextInt();
         Node temp =head;
         if(head==null){
             System.out.println("List is Empty");
             return;
         }
+       for(int i =1;i<pos-1 && temp!=null;i++){
+             temp=temp.next;
+       }
+       if(temp==null){
+        System.out.println("Invalid position");
+       }
+       if(pos==1){
+        head.data=val;
+       }
+       temp.next.data=val;
+        
        
-        while(temp.next!=null && temp!=tail){
-            if(temp.next.data==val){
-                temp.next.data=new_val;
-                return;
-            }
-            temp=temp.next;
-        }
-        System.out.println("Please enter valid value");
 
     }
 
 }
+
