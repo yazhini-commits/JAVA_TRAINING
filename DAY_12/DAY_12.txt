@@ -1,6 +1,14 @@
 Questions - Leetcode
 =============
+Questions - Leetcode
+=============
 707. Design Linked List 
+234. Palindrome Linked List
+1721. Swapping Nodes in a Linked List
+237. Delete Node in a Linked List
+1290. Convert Binary Number in a Linked List to Integer
+
+
 
 
 DLL
