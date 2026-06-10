@@ -148,12 +148,15 @@ class DoublyLinkedList{
         System.out.println("Enter the new value:");
         int new_val=sc.nextInt();
         Node temp= head;
+
         while(temp!=null){
             if(temp.data==val){
                 temp.data=new_val;
+                return;
             }
             temp=temp.next;
         } 
+        System.out.println("Value not found in list");
         
     }
     void traversal(){
