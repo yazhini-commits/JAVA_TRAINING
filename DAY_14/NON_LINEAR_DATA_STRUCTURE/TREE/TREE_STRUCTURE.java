@@ -4,6 +4,7 @@ import java.util.*;
 
 public class TREE_STRUCTURE {
     public static void main(String[] args) {
+        
         Tree tree = new Tree(1);
 
         TreeNode root = tree.root;
@@ -19,8 +20,24 @@ public class TREE_STRUCTURE {
 
         System.out.println("Before Deletion:");
         tree.display(tree.root);
-        System.out.println("\n Deleting node 2...");
-        tree.dis
+
+        // System.out.println("\nDeleting node 2...");
+        // tree.delete(tree.root, 2);
+        // tree.deleteAndAttachChildren(tree.root, 2);
+
+        // System.out.println("\nAfter Deletion:");
+        // tree.display(tree.root);
+
+        int key = 6;
+
+        boolean found = tree.search(tree.root, key);
+
+        if (found)
+            System.out.println(key + " Found in Tree");
+        else
+            System.out.println(key + " Not Found");
+        tree.update(5,12);
+        tree.display(tree.root);
 
         }
 }
@@ -62,23 +79,95 @@ class Tree {
             display(child);
         }
     }
-    boolean delete(int key){
-        if(node==null){
-            System.out.println("Tree is empty");
+    boolean delete(TreeNode node, int key) {
+        if (node == null)
             return false;
-        }
-        for(int i =0;i<node.children.size();i++){
+
+        // Check all children of current node
+        for (int i = 0; i < node.children.size(); i++) {
+
             TreeNode child = node.children.get(i);
-            if(chid.data==key){
-                node.children=key;
+
+            if (child.data == key) {
+                node.children.remove(i); // remove child
                 return true;
             }
         }
 
+        // Recursively search in children deeply
         for (TreeNode child : node.children) {
-            delete(child.data)
+            if (delete(child, key))
+                return true;
         }
 
+        return false;
+    }
+    
+    boolean deleteAndAttachChildren(TreeNode node, int key) {
+        // root, 2
+        if (node == null)
+            return false;
+
+        for (int i = 0; i < node.children.size(); i++) {
+
+            TreeNode child = node.children.get(i);
+
+            if (child.data == key) {
+
+                // Attach all children of deleted node
+                node.children.addAll(child.children);
+
+                // Remove the node itself
+                node.children.remove(i);
+
+                return true;
+            }
+        }
+
+        // Search deeper
+        for (TreeNode child : node.children) {
+            if (deleteAndAttachChildren(child, key))
+                return true;
+        }
+
+        return false;
+    }
+    
+    boolean search(TreeNode node, int key) {
+        // 6, 6
+        if (node == null)
+            return false;
+
+        if (node.data == key)
+            return true;
+
+        for (TreeNode child : node.children) {
+            if (search(child, key))
+                return true;
+        }
+
+        return false;
+    }
+
+    boolean update(TreeNode node, int old_val, int new_val) {
+        if (node == null)
+            return false;
+
+        if (node.data == old_val) {
+            node.data = new_val;
+            return true;
+        }
+
+        for (TreeNode child : node.children) {
+            if (update(child, old_val, new_val))
+                return true;
+        }
+
+        return false;
+    }
+
+    boolean update(int old_val, int new_val) {
+        return update(root, old_val, new_val);
     }
 
 }
